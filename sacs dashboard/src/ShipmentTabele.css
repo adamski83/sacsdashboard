@@ -1,0 +1,160 @@
+/* Dodajmy style dla pełnego ekranu na górze pliku */
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+/* Kolory tła aplikacji */
+.green-background {
+	background-color: rgba(0, 128, 0, 0.15);
+	transition: background-color 0.5s ease;
+}
+
+.red-background {
+	background-color: rgba(255, 0, 0, 0.15);
+	transition: background-color 0.5s ease;
+}
+
+/* Style dla wierszy */
+.complete-row {
+	background-color: rgb(15, 178, 15);
+}
+
+.incomplete-row {
+	background-color: rgb(255, 0, 0);
+}
+
+.today-row:hover {
+	background-color: rgba(30, 144, 255, 0.2); /* Podświetlenie przy najechaniu */
+}
+
+.shipment-table-container {
+	padding: 10px 0; /* Zmniejszyłem padding poziomy, aby zapewnić lepsze wykorzystanie przestrzeni */
+	border-radius: 8px;
+	min-height: 100vh;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+	margin: 0 auto; /* Dodajemy auto marginesy aby wyśrodkować */
+	display: flex;
+	flex-direction: column;
+	align-items: center; /* Wyśrodkowanie w pionie */
+}
+
+.filters {
+	margin-bottom: 15px;
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background-color: inherit;
+	padding: 10px 0;
+	width: 100%;
+	max-width: 95%; /* Ograniczamy szerokość */
+	margin: 0 auto; /* Centrujemy */
+}
+
+.filter-input {
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	min-width: 250px;
+}
+
+.today-btn {
+	padding: 8px 16px;
+	background-color: #4285f4;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.today-btn:hover {
+	background-color: #3367d6;
+}
+
+.table-wrapper {
+	overflow-x: auto;
+	max-height: calc(100vh - 150px);
+	overflow-y: auto;
+	width: 95%; /* Zmniejszamy lekko szerokość aby zapewnić marginesy */
+	max-width: 1800px; /* Maksymalna szerokość dla większych ekranów */
+	margin: 0 auto; /* Centrujemy */
+}
+
+.shipment-table {
+	width: 100%;
+	border-collapse: collapse;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	background-color: rgb(78, 103, 154);
+	table-layout: fixed; /* Zapewnia równe kolumny */
+}
+
+/* Nagłówek typu sticky */
+.shipment-table thead {
+	position: sticky;
+	top: 0;
+	z-index: 5;
+}
+
+.shipment-table th,
+.shipment-table td {
+	padding: 12px 16px;
+	text-align: left;
+	border-bottom: 1px solid #e0e0e0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.shipment-table th {
+	background-color: #7e7c7c;
+	font-weight: bold;
+	cursor: pointer;
+	user-select: none;
+}
+
+.shipment-table th:hover {
+	background-color: #a19c9c;
+}
+
+.sort-asc::after {
+	content: "▲";
+	margin-left: 5px;
+	font-size: 0.8em;
+}
+
+.sort-desc::after {
+	content: "▼";
+	margin-left: 5px;
+	font-size: 0.8em;
+}
+
+/* Dodatkowe style aby zapewnić poprawne działanie sticky header */
+.app-container {
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	align-items: center; /* Wyśrodkowanie w poziomie */
+}
+
+main {
+	flex: 1;
+	overflow: auto;
+	width: 100%;
+	padding: 0;
+	display: flex;
+	justify-content: center; /* Wyśrodkowanie w poziomie */
+	align-items: flex-start; /* Wyrównanie do góry */
+}
